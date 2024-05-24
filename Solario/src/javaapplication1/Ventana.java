@@ -343,315 +343,60 @@ public class Ventana extends javax.swing.JFrame {
 
     private void mercurioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mercurioActionPerformed
         nombre.setText("Mercurio");
-        img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/mercurio.png"))); // NOI18N
-      
-        Connection connection = null;
-
-        try {
-            String BD = "practica_intermodular";
-            String USUARIO = "root";
-            String PASS = "";
-            String HOST = "localhost";
-
-            connection = (Connection) DriverManager.getConnection("jdbc:mysql://" + HOST + "/"
-                    + BD + "?user=" + USUARIO + "&password=" + PASS);
-
-            String consulta = "SELECT * FROM planeta WHERE nombre = 'Mercurio'";
-            Statement stmt = connection.createStatement();
-            ResultSet rset = stmt.executeQuery(consulta);
-            while (rset.next()) {
-                float rad = rset.getFloat("radio");
-                float distanc = rset.getFloat("distancia_sol");
-                float peri = rset.getFloat("periodo_orbital");
-                float temperat = rset.getFloat("temperatura_media");
-                String tip = rset.getString("tipo");
-                int satelit = rset.getInt("num_satelites");
-                                
-                radio.setText(rad+" ");
-                distancia.setText(distanc+" ");
-                periodo.setText(peri+" ");
-                temperatura.setText(temperat+" ");
-                superficie.setText(tip);
-                satelite.setText(satelit+" ");
-                
-            }
-            
-            
-        } catch (SQLException ex) {
-        }
+        String nombr = nombre.getText();
+        icono(nombr);
+        
+        datos(nombr);
+        
     }//GEN-LAST:event_mercurioActionPerformed
 
     private void venusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_venusActionPerformed
         nombre.setText("Venus");
-        img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/venus.png"))); // NOI18N
-        Connection connection = null;
-
-        try {
-            String BD = "practica_intermodular";
-            String USUARIO = "root";
-            String PASS = "";
-            String HOST = "localhost";
-
-            connection = (Connection) DriverManager.getConnection("jdbc:mysql://" + HOST + "/"
-                    + BD + "?user=" + USUARIO + "&password=" + PASS);
-
-            String consulta = "SELECT * FROM planeta WHERE nombre = 'Venus'";
-            Statement stmt = connection.createStatement();
-            ResultSet rset = stmt.executeQuery(consulta);
-            while (rset.next()) {
-                float rad = rset.getFloat("radio");
-                float distanc = rset.getFloat("distancia_sol");
-                float peri = rset.getFloat("periodo_orbital");
-                float temperat = rset.getFloat("temperatura_media");
-                String tip = rset.getString("tipo");
-                int satelit = rset.getInt("num_satelites");
-                                
-                radio.setText(rad+" ");
-                distancia.setText(distanc+" ");
-                periodo.setText(peri+" ");
-                temperatura.setText(temperat+" ");
-                superficie.setText(tip);
-                satelite.setText(satelit+" ");
-                
-            }
-            
-            
-        } catch (SQLException ex) {
-        }
+        String nombr = nombre.getText();
+        icono(nombr);
+        datos(nombr);
     }//GEN-LAST:event_venusActionPerformed
 
     private void tierraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tierraActionPerformed
         nombre.setText("Tierra");
-        img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/tierra.png"))); // NOI18N
-        Connection connection = null;
-
-        try {
-            String BD = "practica_intermodular";
-            String USUARIO = "root";
-            String PASS = "";
-            String HOST = "localhost";
-
-            connection = (Connection) DriverManager.getConnection("jdbc:mysql://" + HOST + "/"
-                    + BD + "?user=" + USUARIO + "&password=" + PASS);
-
-            String consulta = "SELECT * FROM planeta WHERE nombre = 'Tierra'";
-            Statement stmt = connection.createStatement();
-            ResultSet rset = stmt.executeQuery(consulta);
-            while (rset.next()) {
-                float rad = rset.getFloat("radio");
-                float distanc = rset.getFloat("distancia_sol");
-                float peri = rset.getFloat("periodo_orbital");
-                float temperat = rset.getFloat("temperatura_media");
-                String tip = rset.getString("tipo");
-                int satelit = rset.getInt("num_satelites");
-                                
-                radio.setText(rad+" ");
-                distancia.setText(distanc+" ");
-                periodo.setText(peri+" ");
-                temperatura.setText(temperat+" ");
-                superficie.setText(tip);
-                satelite.setText(satelit+" ");
-                
-            }
-            
-            
-        } catch (SQLException ex) {
-        }
+        String nombr = nombre.getText();
+        icono(nombr);
+        datos(nombr);
     }//GEN-LAST:event_tierraActionPerformed
 
     private void marteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marteActionPerformed
         nombre.setText("Marte");
-        img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/marte.png"))); // NOI18N
-        Connection connection = null;
-
-        try {
-            String BD = "practica_intermodular";
-            String USUARIO = "root";
-            String PASS = "";
-            String HOST = "localhost";
-
-            connection = (Connection) DriverManager.getConnection("jdbc:mysql://" + HOST + "/"
-                    + BD + "?user=" + USUARIO + "&password=" + PASS);
-
-            String consulta = "SELECT * FROM planeta WHERE nombre = 'Marte'";
-            Statement stmt = connection.createStatement();
-            ResultSet rset = stmt.executeQuery(consulta);
-            while (rset.next()) {
-                float rad = rset.getFloat("radio");
-                float distanc = rset.getFloat("distancia_sol");
-                float peri = rset.getFloat("periodo_orbital");
-                float temperat = rset.getFloat("temperatura_media");
-                String tip = rset.getString("tipo");
-                int satelit = rset.getInt("num_satelites");
-                                
-                radio.setText(rad+" ");
-                distancia.setText(distanc+" ");
-                periodo.setText(peri+" ");
-                temperatura.setText(temperat+" ");
-                superficie.setText(tip);
-                satelite.setText(satelit+" ");
-                
-            }
-            
-            
-        } catch (SQLException ex) {
-        }
+        String nombr = nombre.getText();
+        icono(nombr);
+        datos(nombr);
     }//GEN-LAST:event_marteActionPerformed
 
     private void jupiterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jupiterActionPerformed
         nombre.setText("Jupiter");
-        img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/jupiter.png"))); // NOI18N
-        Connection connection = null;
-
-        try {
-            String BD = "practica_intermodular";
-            String USUARIO = "root";
-            String PASS = "";
-            String HOST = "localhost";
-
-            connection = (Connection) DriverManager.getConnection("jdbc:mysql://" + HOST + "/"
-                    + BD + "?user=" + USUARIO + "&password=" + PASS);
-
-            String consulta = "SELECT * FROM planeta WHERE nombre = 'Jupiter'";
-            Statement stmt = connection.createStatement();
-            ResultSet rset = stmt.executeQuery(consulta);
-            while (rset.next()) {
-                float rad = rset.getFloat("radio");
-                float distanc = rset.getFloat("distancia_sol");
-                float peri = rset.getFloat("periodo_orbital");
-                float temperat = rset.getFloat("temperatura_media");
-                String tip = rset.getString("tipo");
-                int satelit = rset.getInt("num_satelites");
-                                
-                radio.setText(rad+" ");
-                distancia.setText(distanc+" ");
-                periodo.setText(peri+" ");
-                temperatura.setText(temperat+" ");
-                superficie.setText(tip);
-                satelite.setText(satelit+" ");
-                
-            }
-            
-            
-        } catch (SQLException ex) {
-        }
+        String nombr = nombre.getText();
+        icono(nombr);
+        datos(nombr);
     }//GEN-LAST:event_jupiterActionPerformed
 
     private void saturnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saturnoActionPerformed
         nombre.setText("Saturno");
-        img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/saturno.png"))); // NOI18N
-        Connection connection = null;
-
-        try {
-            String BD = "practica_intermodular";
-            String USUARIO = "root";
-            String PASS = "";
-            String HOST = "localhost";
-
-            connection = (Connection) DriverManager.getConnection("jdbc:mysql://" + HOST + "/"
-                    + BD + "?user=" + USUARIO + "&password=" + PASS);
-
-            String consulta = "SELECT * FROM planeta WHERE nombre = 'Saturno'";
-            Statement stmt = connection.createStatement();
-            ResultSet rset = stmt.executeQuery(consulta);
-            while (rset.next()) {
-                float rad = rset.getFloat("radio");
-                float distanc = rset.getFloat("distancia_sol");
-                float peri = rset.getFloat("periodo_orbital");
-                float temperat = rset.getFloat("temperatura_media");
-                String tip = rset.getString("tipo");
-                int satelit = rset.getInt("num_satelites");
-                                
-                radio.setText(rad+" ");
-                distancia.setText(distanc+" ");
-                periodo.setText(peri+" ");
-                temperatura.setText(temperat+" ");
-                superficie.setText(tip);
-                satelite.setText(satelit+" ");
-                
-            }
-            
-            
-        } catch (SQLException ex) {
-        }
+        String nombr = nombre.getText();
+        icono(nombr);
+        datos(nombr);
     }//GEN-LAST:event_saturnoActionPerformed
 
     private void uranoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uranoActionPerformed
         nombre.setText("Urano");
-        img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/urano.png"))); // NOI18N
-        Connection connection = null;
-
-        try {
-            String BD = "practica_intermodular";
-            String USUARIO = "root";
-            String PASS = "";
-            String HOST = "localhost";
-
-            connection = (Connection) DriverManager.getConnection("jdbc:mysql://" + HOST + "/"
-                    + BD + "?user=" + USUARIO + "&password=" + PASS);
-
-            String consulta = "SELECT * FROM planeta WHERE nombre = 'Urano'";
-            Statement stmt = connection.createStatement();
-            ResultSet rset = stmt.executeQuery(consulta);
-            while (rset.next()) {
-                float rad = rset.getFloat("radio");
-                float distanc = rset.getFloat("distancia_sol");
-                float peri = rset.getFloat("periodo_orbital");
-                float temperat = rset.getFloat("temperatura_media");
-                String tip = rset.getString("tipo");
-                int satelit = rset.getInt("num_satelites");
-                                
-                radio.setText(rad+" ");
-                distancia.setText(distanc+" ");
-                periodo.setText(peri+" ");
-                temperatura.setText(temperat+" ");
-                superficie.setText(tip);
-                satelite.setText(satelit+" ");
-                
-            }
-            
-            
-        } catch (SQLException ex) {
-        }
+        String nombr = nombre.getText();
+        icono(nombr);
+        datos(nombr);
     }//GEN-LAST:event_uranoActionPerformed
 
     private void neptunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_neptunoActionPerformed
         nombre.setText("Neptuno");
-        img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/neptuno.png"))); // NOI18N
-        Connection connection = null;
-
-        try {
-            String BD = "practica_intermodular";
-            String USUARIO = "root";
-            String PASS = "";
-            String HOST = "localhost";
-
-            connection = (Connection) DriverManager.getConnection("jdbc:mysql://" + HOST + "/"
-                    + BD + "?user=" + USUARIO + "&password=" + PASS);
-
-            String consulta = "SELECT * FROM planeta WHERE nombre = 'Neptuno'";
-            Statement stmt = connection.createStatement();
-            ResultSet rset = stmt.executeQuery(consulta);
-            while (rset.next()) {
-                float rad = rset.getFloat("radio");
-                float distanc = rset.getFloat("distancia_sol");
-                float peri = rset.getFloat("periodo_orbital");
-                float temperat = rset.getFloat("temperatura_media");
-                String tip = rset.getString("tipo");
-                int satelit = rset.getInt("num_satelites");
-                                
-                radio.setText(rad+" ");
-                distancia.setText(distanc+" ");
-                periodo.setText(peri+" ");
-                temperatura.setText(temperat+" ");
-                superficie.setText(tip);
-                satelite.setText(satelit+" ");
-                
-            }
-            
-            
-        } catch (SQLException ex) {
-        }
+        String nombr = nombre.getText();
+        icono(nombr);
+        datos(nombr);
     }//GEN-LAST:event_neptunoActionPerformed
 
     private void solActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_solActionPerformed
@@ -725,6 +470,47 @@ public class Ventana extends javax.swing.JFrame {
         });
     }
 
+    public void datos(String nombr){
+    Connection connection = null;
+
+        try {
+            String BD = "practica_intermodular";
+            String USUARIO = "root";
+            String PASS = "";
+            String HOST = "localhost";
+
+            connection = (Connection) DriverManager.getConnection("jdbc:mysql://" + HOST + "/"
+                    + BD + "?user=" + USUARIO + "&password=" + PASS);
+
+            String consulta = "SELECT * FROM planeta WHERE nombre = '"+ nombr + "'";
+            Statement stmt = connection.createStatement();
+            ResultSet rset = stmt.executeQuery(consulta);
+            while (rset.next()) {
+                float rad = rset.getFloat("radio");
+                float distanc = rset.getFloat("distancia_sol");
+                float peri = rset.getFloat("periodo_orbital");
+                float temperat = rset.getFloat("temperatura_media");
+                String tip = rset.getString("tipo");
+                int satelit = rset.getInt("num_satelites");
+                                
+                radio.setText(rad+" ");
+                distancia.setText(distanc+" ");
+                periodo.setText(peri+" ");
+                temperatura.setText(temperat+" ");
+                superficie.setText(tip);
+                satelite.setText(satelit+" ");
+                
+            }
+            
+            
+        } catch (SQLException ex) {
+        }
+    }
+    
+    public void icono (String planet){
+        planet = planet.toLowerCase();
+        img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/"+planet+".png")));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
@@ -767,3 +553,4 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JButton venus;
     // End of variables declaration//GEN-END:variables
 }
+
