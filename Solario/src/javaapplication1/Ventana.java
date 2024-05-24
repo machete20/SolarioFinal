@@ -253,7 +253,7 @@ public class Ventana extends javax.swing.JFrame {
                                     .addComponent(temperaturas)
                                     .addComponent(distancias)
                                     .addComponent(composicion))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(sat1)
@@ -493,6 +493,8 @@ public class Ventana extends javax.swing.JFrame {
     private void solActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_solActionPerformed
         // TODO add your handling code here:
         Connection connection = null;
+        img2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/sol.png")));
+        nombre2.setText("Estrella Sol:");
 
         try {
             String BD = "practica_intermodular";
@@ -529,16 +531,19 @@ public class Ventana extends javax.swing.JFrame {
     private void sat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sat1ActionPerformed
         String nombr = sat1.getText();
         datosSat(nombr);
+        iconoSat(nombr);
     }//GEN-LAST:event_sat1ActionPerformed
 
     private void sat2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sat2ActionPerformed
         String nombr = sat2.getText();
         datosSat(nombr);
+        iconoSat(nombr);
     }//GEN-LAST:event_sat2ActionPerformed
 
     private void sat3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sat3ActionPerformed
         String nombr = sat3.getText();
         datosSat(nombr);
+        iconoSat(nombr);
     }//GEN-LAST:event_sat3ActionPerformed
 
     private void sat4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sat4ActionPerformed
