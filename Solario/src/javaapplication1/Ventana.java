@@ -544,6 +544,7 @@ public class Ventana extends javax.swing.JFrame {
     private void sat4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sat4ActionPerformed
         String nombr = sat4.getText();
         datosSat(nombr);
+        iconoSat(nombr);
     }//GEN-LAST:event_sat4ActionPerformed
 
     public static void main(String args[]) {
@@ -633,6 +634,7 @@ public class Ventana extends javax.swing.JFrame {
             Statement stmt = connection.createStatement();
             ResultSet rset = stmt.executeQuery(consulta);
             while (rset.next()) {
+                String nomb = rset.getString("nombre");
                 String tip = rset.getString("tipo");
                 float rad = rset.getFloat("radio");
                 float temperat = rset.getFloat("temperatura_media");
@@ -645,6 +647,7 @@ public class Ventana extends javax.swing.JFrame {
                 distancias.setText(distanc + " ");
                 composicion.setText(peri+ " ");
                 jComp.setText("Periodo Orbital");
+                nombre2.setText(nomb);
 
             }
 
@@ -655,6 +658,11 @@ public class Ventana extends javax.swing.JFrame {
     public void icono(String planet) {
         planet = planet.toLowerCase();
         img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/" + planet + ".png")));
+    }
+    
+    public void iconoSat(String planet) {
+        planet = planet.toLowerCase();
+        img2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/" + planet + ".png")));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
