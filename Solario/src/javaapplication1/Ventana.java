@@ -11,6 +11,9 @@ public class Ventana extends javax.swing.JFrame {
     public Ventana() {
         initComponents();
         setLocationRelativeTo(null);
+        /*los he metido en un buttongroup aunque al sustituirse los valores al ser pulsados
+        no sería necesario, por eso los satelites no los he agrupado*/
+        
         buttonGroup1.add(mercurio);
         buttonGroup1.add(venus);
         buttonGroup1.add(tierra);
@@ -19,6 +22,8 @@ public class Ventana extends javax.swing.JFrame {
         buttonGroup1.add(saturno);
         buttonGroup1.add(urano);
         buttonGroup1.add(neptuno);
+        
+        //se ocultan los botones de satelites ya que al principio no hay planeta seleccionado
         sat1.setVisible(false);
         sat2.setVisible(false);
         sat3.setVisible(false);
@@ -74,6 +79,7 @@ public class Ventana extends javax.swing.JFrame {
         sat4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Machete_Modular");
         setBackground(new java.awt.Color(60, 85, 186));
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         setForeground(new java.awt.Color(0, 6, 22));
@@ -252,8 +258,8 @@ public class Ventana extends javax.swing.JFrame {
                                     .addComponent(tipos)
                                     .addComponent(temperaturas)
                                     .addComponent(distancias)
-                                    .addComponent(composicion))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                                    .addComponent(composicion, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(sat1)
@@ -295,9 +301,9 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(distancia)
                             .addComponent(periodo)
                             .addComponent(temperatura)
-                            .addComponent(superficie)
-                            .addComponent(satelite))))
-                .addGap(75, 75, 75))
+                            .addComponent(satelite)
+                            .addComponent(superficie, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(17, 17, 17))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(sol)
@@ -395,10 +401,7 @@ public class Ventana extends javax.swing.JFrame {
         icono(nombr);
 
         datos(nombr);
-        sat1.setVisible(false);
-        sat2.setVisible(false);
-        sat3.setVisible(false);
-        sat4.setVisible(false);
+        ceroSat();
     }//GEN-LAST:event_mercurioActionPerformed
 
     private void venusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_venusActionPerformed
@@ -406,10 +409,7 @@ public class Ventana extends javax.swing.JFrame {
         String nombr = nombre.getText();
         icono(nombr);
         datos(nombr);
-        sat1.setVisible(false);
-        sat2.setVisible(false);
-        sat3.setVisible(false);
-        sat4.setVisible(false);
+        ceroSat();
     }//GEN-LAST:event_venusActionPerformed
 
     private void tierraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tierraActionPerformed
@@ -430,12 +430,10 @@ public class Ventana extends javax.swing.JFrame {
         String nombr = nombre.getText();
         icono(nombr);
         datos(nombr);
-        sat1.setVisible(true);
+        dosSat();
         sat1.setText("Fobos");
-        sat2.setVisible(true);
         sat2.setText("Deimos");
-        sat3.setVisible(false);
-        sat4.setVisible(false);
+        
     }//GEN-LAST:event_marteActionPerformed
 
     private void jupiterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jupiterActionPerformed
@@ -458,12 +456,10 @@ public class Ventana extends javax.swing.JFrame {
         String nombr = nombre.getText();
         icono(nombr);
         datos(nombr);
-        sat1.setVisible(true);
+        dosSat();
         sat1.setText("Titan");
-        sat2.setVisible(true);
         sat2.setText("Encelado");
-        sat3.setVisible(false);
-        sat4.setVisible(false);
+        
     }//GEN-LAST:event_saturnoActionPerformed
 
     private void uranoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uranoActionPerformed
@@ -471,12 +467,10 @@ public class Ventana extends javax.swing.JFrame {
         String nombr = nombre.getText();
         icono(nombr);
         datos(nombr);
-        sat1.setVisible(true);
-        sat1.setText("Titania");
-        sat2.setVisible(true);
+        dosSat();
+        sat1.setText("Titania"); 
         sat2.setText("Oberon");
-        sat3.setVisible(false);
-        sat4.setVisible(false);
+        
     }//GEN-LAST:event_uranoActionPerformed
 
     private void neptunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_neptunoActionPerformed
@@ -484,14 +478,13 @@ public class Ventana extends javax.swing.JFrame {
         String nombr = nombre.getText();
         icono(nombr);
         datos(nombr);
-        sat1.setVisible(false);
-        sat2.setVisible(false);
-        sat3.setVisible(false);
-        sat4.setVisible(false);
+        ceroSat();
     }//GEN-LAST:event_neptunoActionPerformed
 
     private void solActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_solActionPerformed
-        // TODO add your handling code here:
+        /* Como la consulta a la base de datos del sol es una tabla distinta y 
+        solo hay una estrella no he creado metodo, sino tambien iria en un metodo*/
+        
         Connection connection = null;
         img2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/sol.png")));
         nombre2.setText("Estrella Sol:");
@@ -587,6 +580,7 @@ public class Ventana extends javax.swing.JFrame {
         });
     }
 
+    //metodo para sacar los datos de los planetas de la base de datos
     public void datos(String nombr) {
         Connection connection = null;
 
@@ -623,6 +617,7 @@ public class Ventana extends javax.swing.JFrame {
         }
     }
 
+    //metodo para sacar los datos de los satelites de la base de datos y reemplazarlos en la zona del sol
     public void datosSat(String nombr) {
         Connection connection = null;
 
@@ -659,15 +654,33 @@ public class Ventana extends javax.swing.JFrame {
         } catch (SQLException ex) {
         }
     }
-
+    
+    //metodo para cambiar el icono a los planetas
     public void icono(String planet) {
         planet = planet.toLowerCase();
         img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/" + planet + ".png")));
     }
     
+    //metodo para cambiarle el icono al satelite
     public void iconoSat(String planet) {
         planet = planet.toLowerCase();
         img2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/" + planet + ".png")));
+    }
+    
+    //metodo para los planetas que tengan 0 satelites se ocultan los 4 botones
+    public void ceroSat(){
+        sat1.setVisible(false);
+        sat2.setVisible(false);
+        sat3.setVisible(false);
+        sat4.setVisible(false);
+    }
+    
+    //metodo para los planetas que tengan 2 satelites se ocultan los otros 2 botones
+    public void dosSat(){
+        sat1.setVisible(true);
+        sat2.setVisible(true);
+        sat3.setVisible(false);
+        sat4.setVisible(false);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

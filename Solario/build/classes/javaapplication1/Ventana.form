@@ -7,6 +7,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="Machete_Modular"/>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="ba" green="55" red="3c" type="rgb"/>
     </Property>
@@ -78,11 +79,11 @@
                                   <Component id="tipos" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="temperaturas" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="distancias" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="composicion" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="composicion" min="-2" pref="175" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="156" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="sat1" min="-2" max="-2" attributes="0"/>
@@ -134,12 +135,12 @@
                           <Component id="distancia" min="-2" max="-2" attributes="0"/>
                           <Component id="periodo" min="-2" max="-2" attributes="0"/>
                           <Component id="temperatura" min="-2" max="-2" attributes="0"/>
-                          <Component id="superficie" min="-2" max="-2" attributes="0"/>
                           <Component id="satelite" min="-2" max="-2" attributes="0"/>
+                          <Component id="superficie" min="-2" pref="88" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
