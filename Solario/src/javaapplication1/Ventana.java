@@ -6,14 +6,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * Clase Ventana que representa la interfaz gráfica de la aplicación.
+ */
 public class Ventana extends javax.swing.JFrame {
 
+    /**
+     * Constructor de la clase Ventana. Inicializa los componentes y configura
+     * la ventana.
+     */
     public Ventana() {
         initComponents();
         setLocationRelativeTo(null);
         /*los he metido en un buttongroup aunque al sustituirse los valores al ser pulsados
         no sería necesario, por eso los satelites no los he agrupado*/
-        
+
         buttonGroup1.add(mercurio);
         buttonGroup1.add(venus);
         buttonGroup1.add(tierra);
@@ -22,7 +29,7 @@ public class Ventana extends javax.swing.JFrame {
         buttonGroup1.add(saturno);
         buttonGroup1.add(urano);
         buttonGroup1.add(neptuno);
-        
+
         //se ocultan los botones de satelites ya que al principio no hay planeta seleccionado
         sat1.setVisible(false);
         sat2.setVisible(false);
@@ -395,6 +402,11 @@ public class Ventana extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Evento de acción al seleccionar Mercurio.
+     *
+     * @param evt Evento de acción.
+     */
     private void mercurioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mercurioActionPerformed
         nombre.setText("Mercurio");
         String nombr = nombre.getText();
@@ -404,6 +416,11 @@ public class Ventana extends javax.swing.JFrame {
         ceroSat();
     }//GEN-LAST:event_mercurioActionPerformed
 
+    /**
+     * Evento de acción al seleccionar Venus.
+     *
+     * @param evt Evento de acción.
+     */
     private void venusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_venusActionPerformed
         nombre.setText("Venus");
         String nombr = nombre.getText();
@@ -412,6 +429,11 @@ public class Ventana extends javax.swing.JFrame {
         ceroSat();
     }//GEN-LAST:event_venusActionPerformed
 
+    /**
+     * Evento de acción al seleccionar Tierra.
+     *
+     * @param evt Evento de acción.
+     */
     private void tierraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tierraActionPerformed
         nombre.setText("Tierra");
         String nombr = nombre.getText();
@@ -425,6 +447,11 @@ public class Ventana extends javax.swing.JFrame {
 
     }//GEN-LAST:event_tierraActionPerformed
 
+    /**
+     * Evento de acción al seleccionar Marte.
+     *
+     * @param evt Evento de acción.
+     */
     private void marteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marteActionPerformed
         nombre.setText("Marte");
         String nombr = nombre.getText();
@@ -433,9 +460,14 @@ public class Ventana extends javax.swing.JFrame {
         dosSat();
         sat1.setText("Fobos");
         sat2.setText("Deimos");
-        
+
     }//GEN-LAST:event_marteActionPerformed
 
+    /**
+     * Evento de acción al seleccionar Jupiter.
+     *
+     * @param evt Evento de acción.
+     */
     private void jupiterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jupiterActionPerformed
         nombre.setText("Jupiter");
         String nombr = nombre.getText();
@@ -451,6 +483,11 @@ public class Ventana extends javax.swing.JFrame {
         sat4.setText("Calisto");
     }//GEN-LAST:event_jupiterActionPerformed
 
+    /**
+     * Evento de acción al seleccionar Saturno.
+     *
+     * @param evt Evento de acción.
+     */
     private void saturnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saturnoActionPerformed
         nombre.setText("Saturno");
         String nombr = nombre.getText();
@@ -459,20 +496,30 @@ public class Ventana extends javax.swing.JFrame {
         dosSat();
         sat1.setText("Titan");
         sat2.setText("Encelado");
-        
+
     }//GEN-LAST:event_saturnoActionPerformed
 
+    /**
+     * Evento de acción al seleccionar Urano.
+     *
+     * @param evt Evento de acción.
+     */
     private void uranoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uranoActionPerformed
         nombre.setText("Urano");
         String nombr = nombre.getText();
         icono(nombr);
         datos(nombr);
         dosSat();
-        sat1.setText("Titania"); 
+        sat1.setText("Titania");
         sat2.setText("Oberon");
-        
+
     }//GEN-LAST:event_uranoActionPerformed
 
+    /**
+     * Evento de acción al seleccionar Neptuno.
+     *
+     * @param evt Evento de acción.
+     */
     private void neptunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_neptunoActionPerformed
         nombre.setText("Neptuno");
         String nombr = nombre.getText();
@@ -481,10 +528,15 @@ public class Ventana extends javax.swing.JFrame {
         ceroSat();
     }//GEN-LAST:event_neptunoActionPerformed
 
+    /**
+     * Evento de acción al seleccionar el Sol.
+     *
+     * @param evt Evento de acción.
+     */
     private void solActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_solActionPerformed
         /* Como la consulta a la base de datos del sol es una tabla distinta y 
         solo hay una estrella no he creado metodo, sino tambien iria en un metodo*/
-        
+
         Connection connection = null;
         img2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/sol.png")));
         nombre2.setText("Estrella Sol:");
@@ -521,30 +573,55 @@ public class Ventana extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_solActionPerformed
 
+    /**
+     * Evento de acción al seleccionar el satélite 1.
+     *
+     * @param evt Evento de acción.
+     */
     private void sat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sat1ActionPerformed
         String nombr = sat1.getText();
         datosSat(nombr);
         iconoSat(nombr);
     }//GEN-LAST:event_sat1ActionPerformed
 
+    /**
+     * Evento de acción al seleccionar el satélite 2.
+     *
+     * @param evt Evento de acción.
+     */
     private void sat2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sat2ActionPerformed
         String nombr = sat2.getText();
         datosSat(nombr);
         iconoSat(nombr);
     }//GEN-LAST:event_sat2ActionPerformed
 
+    /**
+     * Evento de acción al seleccionar el satélite 3.
+     *
+     * @param evt Evento de acción.
+     */
     private void sat3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sat3ActionPerformed
         String nombr = sat3.getText();
         datosSat(nombr);
         iconoSat(nombr);
     }//GEN-LAST:event_sat3ActionPerformed
 
+    /**
+     * Evento de acción al seleccionar el satélite 4.
+     *
+     * @param evt Evento de acción.
+     */
     private void sat4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sat4ActionPerformed
         String nombr = sat4.getText();
         datosSat(nombr);
         iconoSat(nombr);
     }//GEN-LAST:event_sat4ActionPerformed
 
+    /**
+     * Método main que inicia la aplicación.
+     *
+     * @param args Argumentos de línea de comandos.
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -580,7 +657,11 @@ public class Ventana extends javax.swing.JFrame {
         });
     }
 
-    //metodo para sacar los datos de los planetas de la base de datos
+    /**
+     * Método para obtener los datos de un planeta desde la base de datos.
+     *
+     * @param nombr Nombre del planeta.
+     */
     public void datos(String nombr) {
         Connection connection = null;
 
@@ -617,7 +698,11 @@ public class Ventana extends javax.swing.JFrame {
         }
     }
 
-    //metodo para sacar los datos de los satelites de la base de datos y reemplazarlos en la zona del sol
+    /**
+     * Método para obtener los datos de un satelite desde la base de datos.
+     *
+     * @param nombr Nombre del planeta.
+     */
     public void datosSat(String nombr) {
         Connection connection = null;
 
@@ -630,7 +715,7 @@ public class Ventana extends javax.swing.JFrame {
             connection = (Connection) DriverManager.getConnection("jdbc:mysql://" + HOST + "/"
                     + BD + "?user=" + USUARIO + "&password=" + PASS);
 
-            String consulta = "SELECT * FROM satelite WHERE nombre = '" + nombr + "'" ;
+            String consulta = "SELECT * FROM satelite WHERE nombre = '" + nombr + "'";
             Statement stmt = connection.createStatement();
             ResultSet rset = stmt.executeQuery(consulta);
             while (rset.next()) {
@@ -645,7 +730,7 @@ public class Ventana extends javax.swing.JFrame {
                 radios.setText(rad + " ");
                 temperaturas.setText(temperat + " ");
                 distancias.setText(distanc + " ");
-                composicion.setText(peri+ " ");
+                composicion.setText(peri + " ");
                 jComp.setText("Periodo Orbital");
                 nombre2.setText(nomb);
 
@@ -654,29 +739,43 @@ public class Ventana extends javax.swing.JFrame {
         } catch (SQLException ex) {
         }
     }
-    
-    //metodo para cambiar el icono a los planetas
+
+    /**
+     * Método para cambiar el icono de los planetas.
+     *
+     * @param planet Nombre del planeta.
+     */
     public void icono(String planet) {
         planet = planet.toLowerCase();
         img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/" + planet + ".png")));
     }
-    
-    //metodo para cambiarle el icono al satelite
+
+    /**
+     * Método para cambiar el icono de los satélites.
+     *
+     * @param planet Nombre del satélite.
+     */
     public void iconoSat(String planet) {
         planet = planet.toLowerCase();
         img2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/" + planet + ".png")));
     }
-    
-    //metodo para los planetas que tengan 0 satelites se ocultan los 4 botones
-    public void ceroSat(){
+
+    /**
+     * Método para ocultar los botones de satélites cuando el planeta tiene 0
+     * satélites.
+     */
+    public void ceroSat() {
         sat1.setVisible(false);
         sat2.setVisible(false);
         sat3.setVisible(false);
         sat4.setVisible(false);
     }
-    
-    //metodo para los planetas que tengan 2 satelites se ocultan los otros 2 botones
-    public void dosSat(){
+
+    /**
+     * Método para mostrar solo dos botones de satélites cuando el planeta tiene
+     * 2 satélites.
+     */
+    public void dosSat() {
         sat1.setVisible(true);
         sat2.setVisible(true);
         sat3.setVisible(false);
